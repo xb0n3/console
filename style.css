@@ -1,6 +1,57 @@
 * {
-  content: 'CSS active';
+  font-family: monospace;
+  font-size: 24px;
   margin: 0;
   padding: 0;
   box-sizing:  border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.screen {
+  background: slategrey;
+  padding: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  order: 1;
+  overflow: scroll;
+}
+
+.screen p {
+  padding: 0 0.8rem;
+}
+.input {
+  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+  order: 0;
+}
+
+.input .promptField {
+  padding: 0.8rem;
+  border: none;
+  font-size: inherit;
+  background: lightgrey;
+  flex-grow: 1;
+}
+
+.input .promptButton {
+  padding: 0.8rem;
+  border: none;
+  font-size: inherit;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: orange;
 }
