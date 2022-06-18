@@ -124,8 +124,10 @@ function noteMode(userCommand) {
       printCommand(noteLog);
       break;
     case (userCommand == '!delete'): // needs fixing
+      notePosition = noteLog.length;
       do {
-        noteLog.charAt(--notePosition);
+        --notePosition;
+        noteLog.charAt(notePosition);
       } while (noteLog.charAt(notePosition) != ' ');
       noteLog = noteLog.substring(0, notePosition);
       printCommand(noteLog);
