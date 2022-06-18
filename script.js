@@ -123,7 +123,7 @@ function noteMode(userCommand) {
     case (userCommand == '!print'):
       printCommand(noteLog);
       break;
-    case (userCommand == '!delete'): // needs fixing
+    case (userCommand == '!delete'): // only unstable with singel word string
       notePosition = noteLog.length;
       do {
         --notePosition;
