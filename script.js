@@ -22,6 +22,7 @@ let consoleHelp = `The following commands are available:<br>
 !user (to change user)<br>
 !help (display this message)`;
 let noteLog = '';
+let calcLog = '';
 let notePosition = '';
 let consoleScreen = document.querySelector('.screen');
 let inputButton = document.querySelector('.promptButton');
@@ -81,20 +82,43 @@ function focusScreen() {
 
 function calcMode(userCommand) {
   switch(true) {
+    case (userCommand == '' || 
+          userCommand == null || 
+          userCommand == undefined):
+      return;
+      break;
+    case (userCommand == '!calc' || 
+          userCommand == '!note' || 
+          userCommand == '!game'):
+      printCommand('Invalid command')
+      break;
+    case (userCommand == '!reset'):
+      resetScreen();
+      break;
+    case (userCommand == '!help'):
+      printCommand(calcHelp);
+      break;
     case (userCommand == '!exit'):
-      noteModeSwitch = false;
+      calcModeSwitch = false;
       printCommand('> Entered menu mode');
       break;
+    default:
+      calcLog = `${userCommand} = ${eval(userCommand)}`;
+    printCommand(calcLog);
   }
 };
 
 function noteMode(userCommand) {
   switch(true) {
-    case (userCommand == '!note' || 
-          userCommand == '' || 
+    case (userCommand == '' || 
           userCommand == null || 
           userCommand == undefined):
       return;
+      break;
+    case (userCommand == '!calc' || 
+          userCommand == '!note' || 
+          userCommand == '!game'):
+      printCommand('Invalid command')
       break;
     case (userCommand == '!print'):
       printCommand(noteLog);
