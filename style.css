@@ -3,13 +3,18 @@
   font-size: 24px;
   margin: 0;
   padding: 0;
-  box-sizing:  border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
+}
+
+::selection {
+  color: white;
+  background: mediumblue;
 }
 
 .container {
@@ -20,8 +25,8 @@ body {
 }
 
 .screen {
-  background: slategrey;
-  padding: 0.8rem 0;
+  background: gainsboro;
+  border-top: 3px solid darkgray;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -30,7 +35,9 @@ body {
 }
 
 .screen p {
-  padding: 0 0.8rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 3px solid darkgray;
+  line-height: 1.6rem;
 }
 .input {
   font-size: 28px;
@@ -40,18 +47,23 @@ body {
 }
 
 .input .promptField {
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   border: none;
   font-size: inherit;
-  background: lightgrey;
+  background: darkgray;
+  border: 4px solid dimgray;
   flex-grow: 1;
 }
 
 .input .promptButton {
-  padding: 0.8rem;
-  border: none;
-  font-size: inherit;
+  color: cornsilk;
+  font-size: 48px;
+  text-align: center;
   width: 3.2rem;
   height: 3.2rem;
-  background: orange;
+  background: darkorange;
+  border: 4px solid chocolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

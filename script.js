@@ -19,7 +19,6 @@ let consoleHelp = `The following commands are available:<br>
 !game (enter game mode)<br>
 !exit (to exit the above modes)<br>
 !reset (clear the console)<br>
-!user (to change user)<br>
 !help (display this message)`;
 let noteLog = '';
 let calcLog = '';
@@ -49,11 +48,11 @@ function checkCommand(userCommand) {
       return;
       break;
     case (userCommand == '!calc'):
-      printCommand('> Entered calc mode');
+      printCommand('> Entered calc mode<br>> Enter an arithmetic operation and submit to see the answer');
       calcModeSwitch = true;
       break;
     case (userCommand == '!note'):
-      printCommand('> Entered note mode');
+      printCommand('> Entered note mode<br>> Enter a line of text and submit it to your document');
       noteModeSwitch = true;
       break;
     case (userCommand == '!game'):
@@ -133,7 +132,7 @@ function noteMode(userCommand) {
       printCommand(noteLog);
       break;
     case (userCommand == '!clear'):
-      printCommand('Document has been cleared')
+      printCommand('> Document has been cleared')
       noteLog = '';
       break;
     case (userCommand == '!reset'):
