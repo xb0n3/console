@@ -3,18 +3,20 @@ let noteLog = '';
 let consoleScreen = document.querySelector('.screen');
 let inputButton = document.querySelector('.promptButton');
 let inputField = document.querySelector('.promptField[type="text"]');
-let inputValue = document.querySelector('form.input').addEventListener('submit', (userCommand) => {
+let inputValue = document.querySelector('form.input').addEventListener('submit', userCommand => {
   userCommand.preventDefault();
   userCommand = inputField.value;
   checkCommand(userCommand);
   console.log(userCommand);
   focusScreen();
-  inputField.value = '';
+//inputField.value = '';
 });
 
 function checkCommand(userCommand) {
   switch(true) {
-    case (userCommand == '' || userCommand == null || userCommand == undefined):
+    case (userCommand == '' || 
+          userCommand == null || 
+          userCommand == undefined):
       return;
       break;
     case (userCommand == '!calc'):
@@ -23,7 +25,13 @@ function checkCommand(userCommand) {
       break;
     case (userCommand == '!note'):
       printCommand('> Entered note mode');
-      noteMode(userCommand);
+      inputValue = document.querySelector('form.input').addEventListener('submit', userCommand => {
+        userCommand.preventDefault();
+        userCommand = inputField.value;
+        noteMode(userCommand);
+        console.log(userCommand);
+        focusScreen();
+      });
       break;
     case (userCommand == '!game'):
       printCommand('> Entered game mode');
@@ -77,6 +85,7 @@ function noteMode(userCommand) {
       } else {
         noteLog += ' ' + userCommand;
       }
+      printCommand(noteLog);
       break;
   }
 };
