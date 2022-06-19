@@ -110,6 +110,7 @@ function calcMode(userCommand) {
 function noteMode(userCommand) {
   switch(true) {
     case (userCommand == '' || 
+          userCommand == ' ' || 
           userCommand == null || 
           userCommand == undefined):
       return;
@@ -123,13 +124,17 @@ function noteMode(userCommand) {
       printCommand(noteLog);
       break;
     case (userCommand == '!delete'): // only unstable with singel word string
-      notePosition = noteLog.length;
-      do {
-        --notePosition;
-        noteLog.charAt(notePosition);
-      } while (noteLog.charAt(notePosition) != ' ');
-      noteLog = noteLog.substring(0, notePosition);
-      printCommand(noteLog);
+      if (noteLog.search(' ') >= 0) {
+        notePosition = noteLog.length;
+        do {
+          --notePosition;
+          noteLog.charAt(notePosition);
+        } while (noteLog.charAt(notePosition) != ' ');
+        noteLog = noteLog.substring(0, notePosition);
+        printCommand(noteLog);
+      } else {
+        noteLog = '';
+      }
       break;
     case (userCommand == '!clear'):
       printCommand('> Document has been cleared')
