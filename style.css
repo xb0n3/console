@@ -53,13 +53,14 @@ body {
   background: darkgray;
   border: 4px solid dimgray;
   flex-grow: 1;
+  width: 100%;
 }
 
 .input .promptButton {
   color: cornsilk;
   font-size: 48px;
   text-align: center;
-  width: 3.2rem;
+  min-width: 3.2rem;
   height: 3.2rem;
   background: darkorange;
   border: 4px solid chocolate;
